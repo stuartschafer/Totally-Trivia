@@ -95,7 +95,7 @@ var i = 0;
 var guess = 1;
 var madeGuess = 0;
 var time = 15;
-var timeBetween = 6;
+var timeBetween = 1;
 var wins = 0;
 var losses = 0;
 var unanswered = 0;
@@ -113,6 +113,7 @@ $("#useless").click(function() {
 	$(".chooseGame").fadeOut("slow");
 	$(".summary").hide();
 	$(".answer").hide();
+	$("#timer").fadeIn("slow");
 	nextQuestion();
 	i = 0;
 });
@@ -124,6 +125,7 @@ $("#eighty").click(function() {
 	$(".chooseGame").fadeOut("slow");
 	$(".summary").hide();
 	$(".answer").hide();
+	$("#timer").fadeIn("slow");
 	i = 10;
 	nextQuestion();
 });
@@ -135,6 +137,7 @@ $("#geography").click(function() {
 	$(".chooseGame").fadeOut("slow");
 	$(".summary").hide();
 	$(".answer").hide();
+	$("#timer").fadeIn("slow");
 	i = 20;
 	nextQuestion();
 });
@@ -184,6 +187,25 @@ $(".btn").mouseup(function() {
 	$(this).blur();
 });
 
+// This happens after each inBetween question timer and at the beginning of the game
+function nextQuestion() {
+	// This checks to see if 10 questions have been answered.
+	if (wins + losses + unanswered === 10) { gameOver(); }
+	else {	time = 15;
+			madeGuess = 0;
+			timeBetween = 1;
+			$(".answerConfirmation").fadeOut();
+			$(".btn-info").hide();
+			$(".btn-info").css("background-color", "orange");
+			$(".btn-info").fadeIn();
+			$("#questionArea").text(questions[i]);
+			$("#boxOne").text(boxOneChoices[i]);
+			$("#boxTwo").text(boxTwoChoices[i]);
+			$("#boxThree").text(boxThreeChoices[i]);
+			$("#boxFour").text(boxFourChoices[i]);
+			timer(); }
+}
+
 // This starts the 20 second timer for each question
 function timer () {
 	intervalId = setInterval(count, 1000);
@@ -196,25 +218,6 @@ function count () {
 					  checkAnswer(); }
 	$("#timer").html(time);
 	time--;
-}
-
-// This happens after each inBetween question timer and at the beginning of the game
-function nextQuestion() {
-	// This checks to see if 10 questions have been answered.
-	if (wins + losses + unanswered === 10) { gameOver(); }
-	else {	time = 15;
-			madeGuess = 0;
-			timeBetween = 6;
-			$(".answerConfirmation").fadeOut();
-			$(".btn-info").hide();
-			$(".btn-info").css("background-color", "orange");
-			$(".btn-info").fadeIn();
-			$("#questionArea").text(questions[i]);
-			$("#boxOne").text(boxOneChoices[i]);
-			$("#boxTwo").text(boxTwoChoices[i]);
-			$("#boxThree").text(boxThreeChoices[i]);
-			$("#boxFour").text(boxFourChoices[i]);
-			timer(); }
 }
 
 // This checks the user's guess and compares it to the answer.  
