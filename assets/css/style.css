@@ -1,1 +1,33 @@
+body { 	background-image: url("../images/background.jpg");
+	   	background-size: cover;
+	   	color: white;
+	   	font-family: 'Galindo', cursive; }
 
+.btn-info { margin-top: 30px;
+			width: 400px;
+			height: 75px;
+			color: black;
+			background-color: orange;
+			font-size: 20px; }
+
+#questionArea { font-size: 40px; }
+
+#timer {position: fixed;
+		margin-left: 30px;
+		font-size: 200px;
+		height: 100px;
+		margin-top: 150px;
+		color: grey; }
+
+.summary { 	color: aqua; }
+
+.answerConfirmation { 	color: red;
+					  	width: 400px; }
+
+#answerPic {position: absolute;
+			right: 50px;
+			top: 200px; }
+
+#answerInfo {	position: absolute;
+			  	right: 50px;
+			  	top: 510px; }
