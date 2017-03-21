@@ -22,22 +22,32 @@
 </head>
 <body>
 
+<!-- This section plays Mozart. Classical music has shown to improve thinking. -->
 <embed src="assets/audio/mozart.mp3" autostart="true" loop="true"
 width="2" height="0">
 </embed>
 
 <div class="container">
 	<div class="row">
-		<h1><div class="col-md-12 text-center chooseGame"><p>Please select the Trivia game you wish to play.</p><p>You will have 15 seconds for each question.  Good luck!</p>
+		<h1><div class="col-md-12 text-center chooseGame"><p>Please select the Trivia game you wish to play.</p><p>You will have 15 seconds for each question.</p>
+		<p><h4>To see how quick you are, click on Points Mode to keep track of points per question.</p>
+		<p>The faster you are, the more points you earn.  HOWEVER if you guess incorrectly,</p>
+		<p>you will LOSE points for that question.  Click on it to toggle on/off.  Good luck!</p></h4>
 		</div></h1>
 	</div>
 
 	<!-- These are the buttons for the categories of trivia -->
 	<div class="row">
+		<button class="col-md-2 btn btn-danger" id="pointsMode">Points Mode</button>
 		<button class="col-md-2 col-md-offset-2 btn btn-danger chooseGame" id="useless">Useless Trivia</button>
 		<button class="col-md-2 col-md-offset-1 btn btn-success chooseGame" id="eighty">80's Trivia</button>
 		<button class="col-md-2 col-md-offset-1 btn btn-primary chooseGame" id="geography">Geography</button>
 	</div>
+
+<!-- This section is when the user selects Points Mode -->
+<!-- Thia will show the points earned -->
+<h3 class="pointsArea" id="pointsActivated">POINTS MODE ENABLED...
+<span class="pointsArea" id="pointsEarned"></h3>
 
 <!-- This displays the countdown timer for each question -->
 <div class="col-md-2 text-center" id="timer"></div>
@@ -96,9 +106,13 @@ width="2" height="0">
 			<h1>CORRECT ANSWERS: <span id="wins"></span></h1>
 			<h1>WRONG ANSWERS: <span id="losses"></span></h1>
 			<h1>UNANSWERED: <span id="unanswered"></span></h1>
+			<h1>Total Points Earned: <span id = "totalPointsEarned"></span></h1>
 			<h3>Select a category above to play again.</h3>
 		</div>
 	</div>
+
+<!-- This shows the time until the next question is displayed -->
+<h2 id="inBetween"></h2>
 
 <!-- This shows the picture of the answer along with some text about it -->
 	<div class="answer">
