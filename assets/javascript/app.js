@@ -297,7 +297,8 @@ function checkAnswer() {
 }
 
 function betweenQuestions() {
-	$("#inBetween").html("Next question in " + timeBetween);
+	if (wins + losses + unanswered === 10) { $("#inBetween").html("Fianl results displayed in " + timeBetween); }
+	else { $("#inBetween").html("Next question in " + timeBetween); }
 	if (timeBetween === 0) { i++;
 							clearInterval(intervalId);
 							$(".answer").fadeOut("slow");
@@ -320,6 +321,7 @@ function gameOver() {
 	$("#totalPointsEarned").html(totalPointsEarned);
 	$(".pointsArea").hide();
 	$("#pointsEarned").html("");
+	$("#inBetween").html("");
 	wins = 0;
 	losses = 0;
 	unanswered = 0;
